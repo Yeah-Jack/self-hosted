@@ -1,6 +1,6 @@
 services:
   backend:
-    image: zimengxiong/excalidash-backend:0.6.0
+    image: zimengxiong/excalidash-backend:0.6.5
     restart: unless-stopped
     environment:
       - DATABASE_PROVIDER=sqlite
