@@ -1,0 +1,37 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:best-practices"
+	],
+	"labels": [
+		"dependencies"
+	],
+	"minimumReleaseAge": "3 days",
+	"separateMultipleMajor": true,
+	"vulnerabilityAlerts": {
+		"enabled": true,
+		"addLabels": [
+			"security"
+		]
+	},
+	"packageRules": [
+		{
+			"description": "Majors need approval in the Dependency Dashboard. Read the changelog first.",
+			"matchUpdateTypes": [
+				"major"
+			],
+			"dependencyDashboardApproval": true,
+			"addLabels": [
+				"major-update"
+			]
+		},
+		{
+			"description": "Keep ExcaliDash in lockstep",
+			"matchPackageNames": [
+				"zimengxiong/excalidash-frontend",
+				"zimengxiong/excalidash-backend"
+			],
+			"groupName": "ExcaliDash Docker images"
+		}
+	]
+}
