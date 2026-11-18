@@ -42,11 +42,11 @@
 			"versionCompatibility": "^(?<version>[^-]+)(?<compatibility>-.*)?$"
 		},
 		{
-			"description": "PostgreSQL publishes no GitHub releases (the image source is docker-library/postgres), so link the official release notes instead.",
+			"description": "PostgreSQL publishes no GitHub releases (the image source is docker-library/postgres), so link the official release notes instead. Digest-only updates have no newVersion, so fall back to the current version.",
 			"matchPackageNames": [
 				"docker.io/library/postgres"
 			],
-			"changelogUrl": "https://www.postgresql.org/docs/release/{{{newVersion}}}/"
+			"changelogUrl": "https://www.postgresql.org/docs/release/{{#if newVersion}}{{{newVersion}}}{{else}}{{{currentVersion}}}{{/if}}/"
 		}
 	]
 }
