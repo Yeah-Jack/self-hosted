@@ -26,7 +26,7 @@
 			]
 		},
 		{
-			"description": "Keep ExcaliDash in lockstep. The images carry no (backend) or the wrong (frontend: nginx base image) source label, so point Renovate at the real repo for release notes.",
+			"description": "Keep ExcaliDash in lockstep. The images carry no (backend) or the wrong (frontend) source label, so point Renovate at the real repo for release notes.",
 			"matchPackageNames": [
 				"zimengxiong/excalidash-frontend",
 				"zimengxiong/excalidash-backend"
