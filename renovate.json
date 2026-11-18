@@ -26,12 +26,27 @@
 			]
 		},
 		{
-			"description": "Keep ExcaliDash in lockstep",
+			"description": "Keep ExcaliDash in lockstep. The images carry no (backend) or the wrong (frontend) source label, so point Renovate at the real repo for release notes.",
 			"matchPackageNames": [
 				"zimengxiong/excalidash-frontend",
 				"zimengxiong/excalidash-backend"
 			],
-			"groupName": "ExcaliDash Docker images"
+			"groupName": "ExcaliDash Docker images",
+			"sourceUrl": "https://github.com/ZimengXiong/ExcaliDash"
+		},
+		{
+			"description": "Strip the -alpine suffix before comparing versions, so tags like 9.1.3-alpine match upstream releases like 9.1.3.",
+			"matchPackageNames": [
+				"docker.io/valkey/valkey"
+			],
+			"versionCompatibility": "^(?<version>[^-]+)(?<compatibility>-.*)?$"
+		},
+		{
+			"description": "PostgreSQL publishes no GitHub releases (the image source is docker-library/postgres), so link the official release notes instead. Digest-only updates have no newVersion, so fall back to the current version.",
+			"matchPackageNames": [
+				"docker.io/library/postgres"
+			],
+			"changelogUrl": "https://www.postgresql.org/docs/release/{{#if newVersion}}{{{newVersion}}}{{else}}{{{currentVersion}}}{{/if}}/"
 		}
 	]
 }
