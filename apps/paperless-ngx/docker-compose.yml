@@ -14,7 +14,7 @@ services:
       - POSTGRES_USER=paperless
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
   webserver:
-    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    image: ghcr.io/paperless-ngx/paperless-ngx:3.5.1
     pull_policy: always
     restart: unless-stopped
     depends_on:
@@ -48,7 +48,7 @@ services:
       - "--chromium-disable-javascript=true"
       - "--chromium-allow-list=file:///tmp/.*"
   tika:
-    image: docker.io/apache/tika:latest
+    image: docker.io/apache/tika:4.2.0
     restart: unless-stopped
 volumes:
   data:
