@@ -14,6 +14,15 @@
 			"security"
 		]
 	},
+	"automergeSchedule": [
+		"* 0-6 * * *"
+	],
+	"timezone": "Europe/Berlin",
+	"osvVulnerabilityAlerts": true,
+	"dependencyDashboard": {
+		"osvVulnerabilitySummary": "unresolved"
+	},
+	"platformAutomerge": false,
 	"packageRules": [
 		{
 			"description": "Majors need approval in the Dependency Dashboard. Read the changelog first.",
@@ -47,6 +56,15 @@
 				"docker.io/library/postgres"
 			],
 			"changelogUrl": "https://www.postgresql.org/docs/release/{{#if newVersion}}{{{newVersion}}}{{else}}{{{currentVersion}}}{{/if}}/"
+		},
+		{
+			"description": "Renovate never gives digest updates a timestamp for the stability-days status, so it stays pending forever.",
+			"matchUpdateTypes": [
+				"digest"
+			],
+			"groupName": "Digests",
+			"minimumReleaseAgeBehaviour": "timestamp-optional",
+			"automerge": true
 		}
 	]
 }
