@@ -1,6 +1,6 @@
 services:
   backend:
-    image: zimengxiong/excalidash-backend:0.6.9@sha256:ddc71e3bbb48c9b6e0268fb6b2a8a85d2a71b044a2fa1a4f3440d8cdbcb6bb2b
+    image: zimengxiong/excalidash-backend:0.7.0@sha256:f0160bc2b28d24e8ec4ab8d07eeaea357e4c524e983b1fbf6f712503ca5fe17f
     restart: unless-stopped
     environment:
       - DATABASE_PROVIDER=sqlite
@@ -27,7 +27,7 @@ services:
       retries: 3
 
   frontend:
-    image: zimengxiong/excalidash-frontend:0.6.9@sha256:f78ec33e754d1ba387540021437425e4c4c1038346c5021a324c525642b134cf
+    image: zimengxiong/excalidash-frontend:0.7.0@sha256:c528f96807a20d865f15a99938833a49a0611ed0fd9913c571b8a5303b420641
     restart: unless-stopped
     depends_on:
       - backend
